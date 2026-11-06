@@ -1,0 +1,707 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Valleny Skincare — Glow, naturally</title>
+<meta name="description" content="Valleny Skincare — gentle, results-driven skincare. Shop serums, cleansers and body care, see real before & after results, and order on WhatsApp.">
+<meta property="og:title" content="Valleny Skincare">
+<meta property="og:description" content="Real results. Gentle formulas. Order on WhatsApp.">
+<meta property="og:url" content="https://vallenyskincare.com/">
+<meta name="theme-color" content="#3b2a24">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><circle cx='32' cy='32' r='30' fill='%233b2a24'/><text x='32' y='43' font-size='32' text-anchor='middle' fill='%23f7f1ea' font-family='Georgia'>V</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cream:#f7f1ea; --sand:#efe4d8; --blush:#ecd5cb; --clay:#c98b77; --clay-d:#a96a57;
+  --cocoa:#3b2a24; --ink:#2a1f1b; --muted:#7d6a61; --sage:#8a9a7b; --white:#fffdfa;
+  --line:rgba(59,42,36,.12); --radius:22px; --shadow:0 20px 50px -25px rgba(59,42,36,.35);
+  --serif:'Cormorant Garamond',Georgia,serif; --sans:'Jost',system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;overflow-x:clip}
+body{background:var(--cream);color:var(--ink);font-family:var(--sans);font-weight:300;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
+.wrap{width:min(1180px,100% - 32px);margin-inline:auto}
+h1,h2,h3{font-family:var(--serif);font-weight:500;line-height:1.08;letter-spacing:-.01em}
+.eyebrow{font-size:.74rem;letter-spacing:.28em;text-transform:uppercase;color:var(--clay-d);font-weight:500}
+.btn{display:inline-flex;align-items:center;gap:.6rem;padding:.95rem 1.7rem;border-radius:999px;font-weight:400;font-size:.95rem;transition:.3s}
+.btn-dark{background:var(--cocoa);color:var(--cream)}
+.btn-dark:hover{background:var(--clay-d);transform:translateY(-2px)}
+.btn-ghost{border:1px solid var(--cocoa)}
+.btn-ghost:hover{background:var(--cocoa);color:var(--cream)}
+section{padding:110px 0}
+.sec-head{text-align:center;max-width:640px;margin:0 auto 56px}
+.sec-head h2{font-size:clamp(2.3rem,5vw,3.6rem);margin:.6rem 0 .8rem}
+.sec-head p{color:var(--muted)}
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .9s ease,transform .9s ease}
+.reveal.in{opacity:1;transform:none}
+
+/* announcement + nav */
+.announce{background:var(--cocoa);color:var(--cream);text-align:center;font-size:.8rem;letter-spacing:.08em;padding:.55rem 1rem}
+header{position:sticky;top:0;z-index:50;background:rgba(247,241,234,.85);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:74px}
+.logo{font-family:var(--serif);font-size:1.75rem;font-weight:600;letter-spacing:.06em}
+.logo span{font-family:var(--sans);font-size:.62rem;letter-spacing:.4em;display:block;margin-top:-6px;color:var(--muted);font-weight:400}
+.nav-links{display:flex;gap:2.2rem;font-size:.92rem}
+.nav-links a{position:relative}
+.nav-links a::after{content:"";position:absolute;left:0;bottom:-4px;width:0;height:1px;background:var(--clay);transition:.3s}
+.nav-links a:hover::after{width:100%}
+.nav-actions{display:flex;align-items:center;gap:.6rem}
+.bag-btn{position:relative;width:46px;height:46px;border-radius:50%;display:grid;place-items:center;border:1px solid var(--line);transition:.3s}
+.bag-btn:hover{background:var(--sand)}
+.bag-count{position:absolute;top:-3px;right:-3px;background:var(--clay);color:#fff;font-size:.7rem;min-width:20px;height:20px;border-radius:10px;display:grid;place-items:center;font-weight:500;transform:scale(0);transition:.3s}
+.bag-count.show{transform:scale(1)}
+.menu-btn{display:none;width:46px;height:46px;border-radius:50%;border:1px solid var(--line);place-items:center}
+
+/* hero */
+.hero{padding:70px 0 90px;position:relative}
+.hero-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:60px;align-items:center}
+.hero h1{font-size:clamp(3rem,7.4vw,6rem);margin:1.2rem 0 1.4rem}
+.hero h1 em{color:var(--clay-d);font-style:italic}
+.hero p.lead{font-size:1.12rem;color:var(--muted);max-width:470px;margin-bottom:2.2rem}
+.hero-cta{display:flex;gap:.9rem;flex-wrap:wrap}
+.hero-stats{display:flex;gap:2.4rem;margin-top:3rem;padding-top:2rem;border-top:1px solid var(--line)}
+.hero-stats b{font-family:var(--serif);font-size:2.1rem;font-weight:500;display:block;line-height:1}
+.hero-stats small{color:var(--muted);font-size:.82rem}
+.hero-visual{position:relative;aspect-ratio:4/5}
+.arch{position:absolute;inset:0;border-radius:300px 300px 28px 28px;background:linear-gradient(160deg,var(--blush),var(--clay) 120%);overflow:hidden;box-shadow:var(--shadow)}
+.arch img{width:100%;height:100%;object-fit:cover}
+.arch .ph-hero{position:absolute;inset:0;display:grid;place-items:end center;padding-bottom:12%}
+.float-card{position:absolute;background:var(--white);border-radius:18px;padding:1rem 1.2rem;box-shadow:var(--shadow);display:flex;align-items:center;gap:.8rem;animation:bob 6s ease-in-out infinite}
+.float-card.one{left:-28px;bottom:16%}
+.float-card.two{right:-18px;top:14%;animation-delay:-3s}
+.float-card .ic{width:40px;height:40px;border-radius:50%;background:var(--sand);display:grid;place-items:center;color:var(--clay-d)}
+.float-card b{font-weight:500;display:block;font-size:.92rem}
+.float-card small{color:var(--muted);font-size:.78rem}
+@keyframes bob{50%{transform:translateY(-10px)}}
+
+/* marquee */
+.marquee{background:var(--sand);border-block:1px solid var(--line);overflow:hidden;padding:1.1rem 0}
+.marquee-track{display:flex;gap:3rem;width:max-content;animation:scroll 32s linear infinite;font-family:var(--serif);font-size:1.45rem;font-style:italic;color:var(--cocoa)}
+.marquee-track span::after{content:"✦";margin-left:3rem;color:var(--clay);font-style:normal;font-size:.9rem}
+@keyframes scroll{to{transform:translateX(-50%)}}
+
+/* shop */
+.filters{display:flex;gap:.6rem;justify-content:center;flex-wrap:wrap;margin-bottom:44px}
+.chip{padding:.6rem 1.3rem;border-radius:999px;border:1px solid var(--line);font-size:.88rem;transition:.25s}
+.chip:hover{border-color:var(--cocoa)}
+.chip.active{background:var(--cocoa);color:var(--cream);border-color:var(--cocoa)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:28px}
+.card{background:var(--white);border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);transition:.4s;display:flex;flex-direction:column}
+.card:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
+.card-img{position:relative;aspect-ratio:1/1.05;background:var(--sand);overflow:hidden;cursor:pointer}
+.card-img img,.card-img svg{width:100%;height:100%;object-fit:cover;transition:transform .8s}
+.card:hover .card-img img,.card:hover .card-img svg{transform:scale(1.06)}
+.badge{position:absolute;top:14px;left:14px;background:var(--cocoa);color:var(--cream);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;padding:.35rem .75rem;border-radius:999px}
+.card-body{padding:1.3rem 1.4rem 1.5rem;display:flex;flex-direction:column;flex:1}
+.card-cat{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--sage);font-weight:500}
+.card h3{font-size:1.55rem;margin:.3rem 0 .35rem}
+.card p{color:var(--muted);font-size:.9rem;flex:1}
+.card-foot{display:flex;align-items:center;justify-content:space-between;margin-top:1.1rem}
+.price{font-family:var(--serif);font-size:1.6rem;font-weight:600}
+.price small{font-family:var(--sans);font-size:.78rem;color:var(--muted);font-weight:300;margin-left:.3rem}
+.add{width:46px;height:46px;border-radius:50%;background:var(--cocoa);color:var(--cream);display:grid;place-items:center;transition:.3s}
+.add:hover{background:var(--clay-d);transform:rotate(90deg)}
+.add.done{background:var(--sage);transform:none}
+.more{font-size:.82rem;text-decoration:underline;text-underline-offset:3px;color:var(--muted);margin-top:.6rem;align-self:flex-start}
+
+/* results */
+.results{background:var(--cocoa);color:var(--cream)}
+.results .eyebrow{color:var(--blush)}
+.results .sec-head p{color:rgba(247,241,234,.7)}
+.results-grid{display:grid;grid-template-columns:1.25fr 1fr;gap:56px;align-items:center}
+.ba{position:relative;aspect-ratio:4/3.4;border-radius:var(--radius);overflow:hidden;user-select:none;touch-action:none;cursor:ew-resize;box-shadow:0 30px 60px -25px rgba(0,0,0,.6)}
+.ba .layer{position:absolute;inset:0}
+.ba .layer img{width:100%;height:100%;object-fit:cover}
+.ba .before{clip-path:inset(0 50% 0 0)}
+.ba .tag{position:absolute;bottom:16px;background:rgba(42,31,27,.7);backdrop-filter:blur(6px);font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;padding:.4rem .85rem;border-radius:999px;color:#fff}
+.ba .after .tag{right:16px}.ba .before .tag{left:16px}
+.ba .handle{position:absolute;top:0;bottom:0;left:50%;width:2px;background:#fff;transform:translateX(-1px)}
+.ba .knob{position:absolute;top:50%;left:50%;width:54px;height:54px;border-radius:50%;background:#fff;color:var(--cocoa);transform:translate(-50%,-50%);display:grid;place-items:center;box-shadow:0 8px 24px rgba(0,0,0,.3)}
+.ph{width:100%;height:100%;display:grid;place-items:center;text-align:center;font-family:var(--serif);font-size:1.3rem;font-style:italic;padding:2rem}
+.case-tabs{display:flex;gap:.5rem;flex-wrap:wrap;margin:1.6rem 0 1.4rem}
+.case-tabs button{padding:.55rem 1.1rem;border-radius:999px;border:1px solid rgba(247,241,234,.25);font-size:.85rem;transition:.25s}
+.case-tabs button.active,.case-tabs button:hover{background:var(--cream);color:var(--cocoa)}
+.case-info h3{font-size:2.4rem;margin-bottom:.8rem}
+.case-info p{color:rgba(247,241,234,.75)}
+.case-meta{display:flex;gap:2rem;margin:1.6rem 0 2rem;padding:1.3rem 0;border-block:1px solid rgba(247,241,234,.15)}
+.case-meta b{font-family:var(--serif);font-size:1.5rem;font-weight:500;display:block}
+.case-meta small{font-size:.78rem;color:rgba(247,241,234,.6);letter-spacing:.1em;text-transform:uppercase}
+.results .btn-dark{background:var(--cream);color:var(--cocoa)}
+.results .btn-dark:hover{background:var(--blush)}
+
+/* routine */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;counter-reset:s}
+.step{padding:2rem 1.6rem;border-radius:var(--radius);background:var(--white);border:1px solid var(--line);position:relative}
+.step::before{counter-increment:s;content:"0" counter(s);font-family:var(--serif);font-size:3.2rem;color:var(--blush);line-height:1;display:block;margin-bottom:1rem}
+.step h3{font-size:1.5rem;margin-bottom:.4rem}
+.step p{color:var(--muted);font-size:.92rem}
+
+/* reviews */
+.reviews{background:var(--sand)}
+.rev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.rev{background:var(--white);border-radius:var(--radius);padding:2.2rem;border:1px solid var(--line)}
+.stars{color:var(--clay);letter-spacing:.15em;margin-bottom:1rem}
+.rev blockquote{font-family:var(--serif);font-size:1.32rem;line-height:1.4;font-style:italic;margin-bottom:1.4rem}
+.rev .who{display:flex;align-items:center;gap:.8rem;font-size:.9rem}
+.rev .av{width:42px;height:42px;border-radius:50%;background:var(--blush);display:grid;place-items:center;font-family:var(--serif);font-size:1.2rem;font-weight:600}
+.rev .who small{display:block;color:var(--muted);font-size:.78rem}
+
+/* about */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
+.about-img{aspect-ratio:4/5;border-radius:28px;overflow:hidden;background:linear-gradient(150deg,var(--sand),var(--blush));position:relative}
+.about-img img{width:100%;height:100%;object-fit:cover}
+.about h2{font-size:clamp(2.3rem,4.6vw,3.4rem);margin:.8rem 0 1.4rem}
+.about p{color:var(--muted);margin-bottom:1.1rem}
+.values{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:2rem}
+.values div{display:flex;gap:.7rem;align-items:center;font-size:.92rem}
+.values i{width:34px;height:34px;border-radius:50%;background:var(--sand);display:grid;place-items:center;font-style:normal;color:var(--clay-d)}
+
+/* faq */
+.faq{max-width:780px;margin:0 auto}
+.faq details{border-bottom:1px solid var(--line);padding:1.4rem 0}
+.faq summary{list-style:none;cursor:pointer;font-family:var(--serif);font-size:1.45rem;display:flex;justify-content:space-between;align-items:center;gap:1rem}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-family:var(--sans);font-weight:300;font-size:1.6rem;transition:.3s;color:var(--clay-d)}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq details p{color:var(--muted);padding-top:.8rem}
+
+/* contact */
+.contact{padding:0 0 110px}
+.cta-box{background:linear-gradient(135deg,var(--clay),var(--clay-d));border-radius:32px;padding:clamp(2.5rem,6vw,5rem);color:#fff;display:grid;grid-template-columns:1.3fr 1fr;gap:3rem;align-items:center;position:relative;overflow:hidden}
+.cta-box::after{content:"";position:absolute;width:420px;height:420px;border-radius:50%;border:1px solid rgba(255,255,255,.2);right:-120px;top:-160px}
+.cta-box h2{font-size:clamp(2.2rem,4.6vw,3.4rem);margin-bottom:1rem}
+.cta-box p{opacity:.88}
+.contact-list{display:flex;flex-direction:column;gap:.9rem;position:relative;z-index:1}
+.contact-list a{display:flex;align-items:center;gap:.9rem;background:rgba(255,255,255,.14);padding:1rem 1.2rem;border-radius:16px;transition:.3s}
+.contact-list a:hover{background:rgba(255,255,255,.26)}
+.contact-list small{display:block;opacity:.75;font-size:.76rem;letter-spacing:.12em;text-transform:uppercase}
+
+footer{border-top:1px solid var(--line);padding:2.6rem 0;font-size:.85rem;color:var(--muted)}
+.foot{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+
+/* drawer + modal */
+.overlay{position:fixed;inset:0;background:rgba(42,31,27,.45);backdrop-filter:blur(3px);opacity:0;pointer-events:none;transition:.35s;z-index:80}
+.overlay.open{opacity:1;pointer-events:auto}
+.drawer{position:fixed;top:0;right:0;height:100%;width:min(420px,100%);background:var(--cream);z-index:90;transform:translateX(100%);transition:transform .45s cubic-bezier(.2,.8,.2,1);display:flex;flex-direction:column}
+.drawer.open{transform:none}
+.drawer-head{display:flex;justify-content:space-between;align-items:center;padding:1.5rem 1.6rem;border-bottom:1px solid var(--line)}
+.drawer-head h3{font-size:1.9rem}
+.x{width:40px;height:40px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;font-size:1.3rem}
+.drawer-items{flex:1;overflow:auto;padding:1rem 1.6rem}
+.line{display:grid;grid-template-columns:64px 1fr auto;gap:1rem;align-items:center;padding:1rem 0;border-bottom:1px solid var(--line)}
+.line .thumb{width:64px;height:64px;border-radius:14px;overflow:hidden;background:var(--sand)}
+.line .thumb img,.line .thumb svg{width:100%;height:100%;object-fit:cover}
+.line b{font-weight:500;font-size:.95rem}
+.qty{display:flex;align-items:center;gap:.5rem;margin-top:.3rem}
+.qty button{width:26px;height:26px;border-radius:50%;border:1px solid var(--line);line-height:1}
+.empty{text-align:center;color:var(--muted);padding:3rem 1rem}
+.drawer-foot{padding:1.4rem 1.6rem 1.8rem;border-top:1px solid var(--line);background:var(--white)}
+.total{display:flex;justify-content:space-between;font-size:1.05rem;margin-bottom:1rem}
+.total b{font-family:var(--serif);font-size:1.6rem}
+.drawer-foot .btn{width:100%;justify-content:center;background:#1f8f55;color:#fff}
+.drawer-foot .btn:hover{background:#177345}
+.drawer-foot small{display:block;text-align:center;color:var(--muted);margin-top:.7rem;font-size:.78rem}
+.modal{position:fixed;inset:0;z-index:95;display:grid;place-items:center;padding:16px;pointer-events:none;opacity:0;transition:.3s}
+.modal.open{opacity:1;pointer-events:auto}
+.modal-box{background:var(--cream);border-radius:28px;max-width:860px;width:100%;max-height:90vh;overflow:auto;display:grid;grid-template-columns:1fr 1fr;position:relative;transform:translateY(20px);transition:.35s}
+.modal.open .modal-box{transform:none}
+.modal-img{background:var(--sand);min-height:340px}
+.modal-img img,.modal-img svg{width:100%;height:100%;object-fit:cover}
+.modal-body{padding:2.4rem}
+.modal-body h3{font-size:2.3rem;margin:.4rem 0 .6rem}
+.modal-body .price{display:block;margin-bottom:1rem}
+.modal-body p{color:var(--muted);margin-bottom:1rem;font-size:.95rem}
+.modal-body h4{font-weight:500;font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;margin:1.2rem 0 .4rem}
+.modal-body ul{padding-left:1.1rem;color:var(--muted);font-size:.92rem}
+.modal .x{position:absolute;top:14px;right:14px;background:var(--cream);z-index:2}
+.wa-float{position:fixed;right:20px;bottom:20px;width:60px;height:60px;border-radius:50%;background:#25d366;color:#fff;display:grid;place-items:center;box-shadow:0 12px 30px -8px rgba(37,211,102,.6);z-index:60;transition:.3s}
+.wa-float:hover{transform:scale(1.08)}
+.toast{position:fixed;left:50%;bottom:28px;transform:translate(-50%,120px);background:var(--cocoa);color:var(--cream);padding:.85rem 1.4rem;border-radius:999px;font-size:.9rem;z-index:100;transition:.4s}
+.toast.show{transform:translate(-50%,0)}
+
+/* responsive */
+@media (max-width:960px){
+  .hero-grid,.results-grid,.about-grid,.cta-box{grid-template-columns:1fr}
+  .hero-visual{max-width:440px;margin:0 auto;width:100%}
+  .steps{grid-template-columns:1fr 1fr}
+  .rev-grid{grid-template-columns:1fr}
+  .nav-links{position:fixed;top:0;right:0;height:100vh;width:min(320px,85%);background:var(--cream);flex-direction:column;padding:110px 2rem;gap:1.6rem;font-size:1.3rem;font-family:var(--serif);transform:translateX(100%);transition:.4s;z-index:70;box-shadow:var(--shadow);visibility:hidden}
+  .nav-links.open{transform:none;visibility:visible}
+  .menu-btn{display:grid;z-index:75}
+  .modal-box{grid-template-columns:1fr}
+  .modal-img{min-height:260px;max-height:320px}
+}
+@media (max-width:560px){
+  section{padding:80px 0}
+  .steps{grid-template-columns:1fr}
+  .float-card.one{left:-6px}.float-card.two{right:-6px}
+  .hero-stats{gap:1.4rem}
+  .values{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<div class="announce">Free delivery in Windhoek on orders over N$ 800 · Order easily on WhatsApp</div>
+
+<header>
+  <div class="wrap nav">
+    <a href="#top" class="logo">VALLENY<span>SKINCARE</span></a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#shop">Shop</a>
+      <a href="#results">Results</a>
+      <a href="#routine">Routine</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="nav-actions">
+      <button class="bag-btn" id="bagBtn" aria-label="Open bag">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 8h14l-1.2 12H6.2L5 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
+        <span class="bag-count" id="bagCount">0</span>
+      </button>
+      <button class="menu-btn" id="menuBtn" aria-label="Menu">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 8h16M4 16h16"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div class="reveal">
+        <span class="eyebrow">Gentle formulas · Visible results</span>
+        <h1>Skin that <em>glows</em> from within.</h1>
+        <p class="lead">Thoughtfully made skincare for clear, even and radiant skin — chosen for our climate and loved by real customers. See the results for yourself.</p>
+        <div class="hero-cta">
+          <a href="#shop" class="btn btn-dark">Shop the collection →</a>
+          <a href="#results" class="btn btn-ghost">See before &amp; after</a>
+        </div>
+        <div class="hero-stats">
+          <div><b data-count="500">0</b><small>Happy clients</small></div>
+          <div><b data-count="4.9" data-dec="1">0</b><small>Average rating</small></div>
+          <div><b data-count="28">0</b><small>Days to visible change</small></div>
+        </div>
+      </div>
+      <div class="hero-visual reveal">
+        <div class="arch" id="heroArch"></div>
+        <div class="float-card one"><div class="ic">✦</div><div><b>Clearer skin</b><small>in 4 weeks</small></div></div>
+        <div class="float-card two"><div class="ic">★</div><div><b>4.9 / 5</b><small>client rating</small></div></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="marquee"><div class="marquee-track" id="marquee"></div></div>
+
+  <!-- SHOP -->
+  <section id="shop">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="eyebrow">The collection</span>
+        <h2>Shop Valleny</h2>
+        <p>Tap a product for full details, how to use it and what it targets. Add to your bag and send your order on WhatsApp in one tap.</p>
+      </div>
+      <div class="filters" id="filters"></div>
+      <div class="grid" id="grid"></div>
+    </div>
+  </section>
+
+  <!-- RESULTS -->
+  <section id="results" class="results">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="eyebrow">Real clients · Real results</span>
+        <h2>Before &amp; after</h2>
+        <p>Drag the slider to see the difference. Unretouched photos shared with permission by our clients.</p>
+      </div>
+      <div class="results-grid">
+        <div class="ba reveal" id="ba">
+          <div class="layer after" id="baAfter"></div>
+          <div class="layer before" id="baBefore"></div>
+          <div class="handle" id="baHandle"><div class="knob">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m9 6-6 6 6 6M15 6l6 6-6 6"/></svg>
+          </div></div>
+        </div>
+        <div class="case-info reveal">
+          <div class="case-tabs" id="caseTabs"></div>
+          <h3 id="caseTitle"></h3>
+          <p id="caseText"></p>
+          <div class="case-meta">
+            <div><b id="caseWeeks"></b><small>Duration</small></div>
+            <div><b id="caseConcern"></b><small>Concern</small></div>
+          </div>
+          <a href="#" class="btn btn-dark" id="caseShop">Shop this routine →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ROUTINE -->
+  <section id="routine">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="eyebrow">Your daily ritual</span>
+        <h2>Four simple steps</h2>
+        <p>Consistency is where the glow happens. Here's how to build your routine.</p>
+      </div>
+      <div class="steps">
+        <div class="step reveal"><h3>Cleanse</h3><p>Gently lift away dirt, sunscreen and makeup without stripping your skin.</p></div>
+        <div class="step reveal"><h3>Treat</h3><p>Apply a targeted serum for dark spots, breakouts or dullness.</p></div>
+        <div class="step reveal"><h3>Moisturise</h3><p>Lock in hydration and strengthen your skin barrier, morning and night.</p></div>
+        <div class="step reveal"><h3>Protect</h3><p>Finish every morning with SPF — the key to keeping results.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section class="reviews">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="eyebrow">Kind words</span>
+        <h2>Loved by our clients</h2>
+      </div>
+      <div class="rev-grid" id="reviews"></div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="about">
+    <div class="wrap about-grid">
+      <div class="about-img reveal" id="aboutImg"></div>
+      <div class="reveal">
+        <span class="eyebrow">Our story</span>
+        <h2>Beauty that starts with care.</h2>
+        <p>Valleny Skincare was created out of a simple belief: everyone deserves skin they feel confident in. Every product in our collection is chosen and tested with real skin, real concerns and our sunny climate in mind.</p>
+        <p>We keep things honest — clear prices, real results, and personal advice whenever you need it. Not sure where to start? Message us and we'll build a routine with you.</p>
+        <div class="values">
+          <div><i>✦</i>Gentle on all skin types</div>
+          <div><i>☀</i>Made for our climate</div>
+          <div><i>♡</i>Personal skin advice</div>
+          <div><i>✓</i>Real, unedited results</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head reveal"><span class="eyebrow">Good to know</span><h2>Questions</h2></div>
+      <div class="faq reveal">
+        <details><summary>How do I place an order?</summary><p>Add products to your bag and tap "Order on WhatsApp". Your order is sent to us as a message, and we'll confirm availability, delivery and payment with you directly.</p></details>
+        <details><summary>Do you deliver?</summary><p>Yes — we deliver within Windhoek and send to other towns across Namibia via courier. Delivery is free in Windhoek on orders over N$ 800.</p></details>
+        <details><summary>How do I pay?</summary><p>We accept EFT, eWallet / bank-app transfers and cash on collection. Payment details are shared when we confirm your order.</p></details>
+        <details><summary>Which products are right for my skin?</summary><p>Send us a message with your main concern (breakouts, dark spots, dryness, dullness) and we'll recommend a routine for you — free of charge.</p></details>
+        <details><summary>How soon will I see results?</summary><p>Most clients notice smoother, brighter skin within 2–4 weeks, with bigger changes to dark spots and texture over 6–12 weeks of consistent use.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="contact">
+    <div class="wrap">
+      <div class="cta-box reveal">
+        <div>
+          <h2>Ready for your glow-up?</h2>
+          <p>Chat with us for personal recommendations, order questions or to collect in person. We usually reply within the hour.</p>
+        </div>
+        <div class="contact-list" id="contactList"></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <span class="logo" style="font-size:1.3rem">VALLENY</span>
+    <span>© <span id="yr"></span> Valleny Skincare · vallenyskincare.com</span>
+  </div>
+</footer>
+
+<!-- bag drawer -->
+<div class="overlay" id="overlay"></div>
+<aside class="drawer" id="drawer" aria-label="Your bag">
+  <div class="drawer-head"><h3>Your bag</h3><button class="x" id="closeBag" aria-label="Close">×</button></div>
+  <div class="drawer-items" id="bagItems"></div>
+  <div class="drawer-foot">
+    <div class="total"><span>Total</span><b id="bagTotal">N$ 0</b></div>
+    <a class="btn" id="checkout" target="_blank" rel="noopener">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-3.3-.8-2.8-1.1-4.5-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.6c-.2.2-.3.4-.1.7.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.7-.1l.9-1.1c.2-.3.4-.2.7-.1l1.9.9c.3.1.5.2.5.3.1.2.1.8-.1 1.4Z"/></svg>
+      Order on WhatsApp
+    </a>
+    <small>We'll confirm delivery &amp; payment with you in the chat.</small>
+  </div>
+</aside>
+
+<!-- product modal -->
+<div class="modal" id="modal" role="dialog" aria-modal="true">
+  <div class="modal-box">
+    <button class="x" id="closeModal" aria-label="Close">×</button>
+    <div class="modal-img" id="mImg"></div>
+    <div class="modal-body">
+      <span class="card-cat" id="mCat"></span>
+      <h3 id="mName"></h3>
+      <span class="price" id="mPrice"></span>
+      <p id="mDesc"></p>
+      <h4>Best for</h4><ul id="mFor"></ul>
+      <h4>How to use</h4><p id="mUse" style="margin:0"></p>
+      <button class="btn btn-dark" id="mAdd" style="margin-top:1.6rem">Add to bag</button>
+    </div>
+  </div>
+</div>
+
+<a class="wa-float" id="waFloat" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-3.3-.8-2.8-1.1-4.5-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.6c-.2.2-.3.4-.1.7.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.7-.1l.9-1.1c.2-.3.4-.2.7-.1l1.9.9c.3.1.5.2.5.3.1.2.1.8-.1 1.4Z"/></svg>
+</a>
+<div class="toast" id="toast"></div>
+
+<script>
+/* =====================================================================
+   EDIT EVERYTHING HERE — no other code needs to change.
+   Images: put files in /images/products and /images/results, then set
+   the path, e.g. img: "images/products/glow-serum.jpg". Leave "" to show
+   the built-in placeholder until real photos are ready.
+   ===================================================================== */
+const SHOP = {
+  whatsapp: "264818598633",            // client's number, country code, no + or spaces
+  phoneDisplay: "+264 81 859 8633",
+  email: "hello@vallenyskincare.com",
+  instagram: "vallenyskincare",
+  currency: "N$",
+  heroImage: "",                        // e.g. "images/hero.jpg"
+  aboutImage: ""                        // e.g. "images/about.jpg"
+};
+
+const PRODUCTS = [
+  { id:"glow-serum", name:"Radiance Glow Serum", cat:"Serums", price:450, size:"30 ml", badge:"Bestseller",
+    short:"Vitamin C serum that fades dark spots and brightens dull skin.",
+    desc:"A lightweight daily serum that evens out skin tone, fades hyperpigmentation and gives a healthy, lit-from-within glow.",
+    for:["Dark spots & uneven tone","Dull, tired skin","All skin types"],
+    use:"Apply 3–4 drops to clean skin every morning before moisturiser. Always follow with SPF.",
+    img:"", color:["#f2c9a0","#e2a06f"] },
+  { id:"clear-serum", name:"Clear Skin Serum", cat:"Serums", price:420, size:"30 ml", badge:"",
+    short:"Niacinamide serum for breakouts, oil control and smaller-looking pores.",
+    desc:"Calms active breakouts, controls shine and refines texture without drying your skin out.",
+    for:["Acne & breakouts","Oily skin","Enlarged pores"],
+    use:"Apply 2–3 drops morning and night after cleansing.",
+    img:"", color:["#dfe5d4","#a8b796"] },
+  { id:"gentle-cleanser", name:"Gentle Foaming Cleanser", cat:"Cleansers", price:280, size:"150 ml", badge:"",
+    short:"Soft foam that cleans deeply while keeping skin soft and balanced.",
+    desc:"A pH-balanced daily cleanser that removes dirt, oil and makeup without that tight, stripped feeling.",
+    for:["Daily cleansing","Sensitive skin","All skin types"],
+    use:"Massage onto damp skin for 60 seconds, rinse with lukewarm water. Use morning and night.",
+    img:"", color:["#f6ece2","#e4cdb8"] },
+  { id:"hydra-cream", name:"Hydra Barrier Cream", cat:"Moisturisers", price:390, size:"50 ml", badge:"New",
+    short:"Rich yet non-greasy moisturiser that repairs and protects your skin barrier.",
+    desc:"Deep, long-lasting hydration with ceramides and shea to soothe dryness and keep skin plump all day.",
+    for:["Dry & dehydrated skin","Sensitive skin","Night repair"],
+    use:"Smooth a pea-sized amount over face and neck morning and night.",
+    img:"", color:["#f3dcd3","#d9a796"] },
+  { id:"spf", name:"Daily Shield SPF 50", cat:"Moisturisers", price:350, size:"50 ml", badge:"",
+    short:"Invisible, no white-cast sunscreen made for everyday wear.",
+    desc:"High protection against sun damage and dark spots, with a light finish that sits beautifully under makeup.",
+    for:["Daily protection","Preventing dark spots","All skin tones — no white cast"],
+    use:"Apply generously as the last step every morning. Reapply every 2–3 hours in the sun.",
+    img:"", color:["#fbe9c8","#efc884"] },
+  { id:"body-oil", name:"Glow Body Oil", cat:"Body", price:320, size:"100 ml", badge:"",
+    short:"Nourishing body oil for soft, even and glowing skin.",
+    desc:"A blend of nourishing oils that softens rough patches, fades marks and leaves a subtle golden sheen.",
+    for:["Dry body skin","Stretch marks & dark marks","Healthy glow"],
+    use:"Massage onto damp skin after showering.",
+    img:"", color:["#ecc9a8","#c98b55"] },
+  { id:"body-scrub", name:"Brightening Body Scrub", cat:"Body", price:260, size:"200 g", badge:"",
+    short:"Sugar scrub that buffs away dullness for smooth, even skin.",
+    desc:"Exfoliates dead skin, helps with ingrown hairs and dark areas, and preps skin to absorb your body oil.",
+    for:["Rough, dull skin","Dark knees & elbows","Ingrown hairs"],
+    use:"Massage onto wet skin 2–3 times a week, then rinse.",
+    img:"", color:["#f0d8cf","#c98b77"] },
+  { id:"glow-set", name:"Complete Glow Set", cat:"Sets", price:1290, size:"4 products", badge:"Save N$ 210",
+    short:"Cleanser, Glow Serum, Barrier Cream and SPF — your full routine.",
+    desc:"Everything you need for brighter, clearer, protected skin — at a better price than buying separately.",
+    for:["Starting a full routine","Gifting","Dark spots & dullness"],
+    use:"Follow our 4-step routine: cleanse, treat, moisturise, protect.",
+    img:"", color:["#3b2a24","#a96a57"] }
+];
+
+const RESULTS = [
+  { tab:"Dark spots", title:"Faded dark spots", concern:"Hyperpigmentation", weeks:"8 weeks",
+    text:"After 8 weeks of the Radiance Glow Serum and daily SPF, her dark spots softened noticeably and her overall tone became more even.",
+    before:"", after:"", products:["glow-serum","spf"] },
+  { tab:"Breakouts", title:"Calmer, clearer skin", concern:"Acne", weeks:"6 weeks",
+    text:"Active breakouts calmed within the first month using the Clear Skin Serum and Gentle Cleanser, with fewer new spots appearing.",
+    before:"", after:"", products:["clear-serum","gentle-cleanser"] },
+  { tab:"Glow", title:"From dull to glowing", concern:"Dullness", weeks:"4 weeks",
+    text:"The Complete Glow Set brought back radiance and smoother texture in just four weeks of consistent use.",
+    before:"", after:"", products:["glow-set"] }
+];
+
+const REVIEWS = [
+  { name:"Ndapewa K.", town:"Windhoek", text:"My dark spots are finally fading. I get compliments on my skin every week now!" },
+  { name:"Selma A.", town:"Swakopmund", text:"Ordering on WhatsApp was so easy and delivery was quick. The glow serum is everything." },
+  { name:"Maria N.", town:"Ongwediva", text:"I struggled with breakouts for years. Six weeks in and my skin has never been this calm." }
+];
+/* ===================== END OF EDITABLE SECTION ===================== */
+
+const $ = s => document.querySelector(s);
+const money = n => `${SHOP.currency} ${n.toLocaleString("en")}`;
+const waLink = msg => `https://wa.me/${SHOP.whatsapp}?text=${encodeURIComponent(msg)}`;
+
+/* placeholder art (shown until real photos are added) */
+function bottleSVG(c, label){
+  const dark = c[0] === "#3b2a24";
+  return `<svg viewBox="0 0 400 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="${label}">
+  <defs><linearGradient id="g${label.length}${c[1].slice(1)}" x1="0" y1="0" x2="1" y2="1">
+  <stop offset="0" stop-color="${dark?'#efe4d8':c[0]}"/><stop offset="1" stop-color="${dark?'#ecd5cb':c[1]}" stop-opacity=".55"/></linearGradient></defs>
+  <rect width="400" height="420" fill="url(#g${label.length}${c[1].slice(1)})"/>
+  <circle cx="300" cy="90" r="70" fill="#fff" opacity=".25"/>
+  <ellipse cx="200" cy="360" rx="95" ry="14" fill="#3b2a24" opacity=".12"/>
+  <rect x="178" y="70" width="44" height="46" rx="8" fill="#3b2a24"/>
+  <rect x="140" y="112" width="120" height="250" rx="34" fill="${dark?'#3b2a24':'#fffdfa'}" opacity=".95"/>
+  <rect x="156" y="130" width="14" height="210" rx="7" fill="#fff" opacity="${dark?'.12':'.7'}"/>
+  <text x="200" y="232" text-anchor="middle" font-family="Cormorant Garamond,Georgia,serif" font-size="22" letter-spacing="3" fill="${dark?'#f7f1ea':'#3b2a24'}">VALLENY</text>
+  <line x1="172" y1="246" x2="228" y2="246" stroke="${dark?'#c98b77':c[1]}" stroke-width="2"/>
+  </svg>`;
+}
+const media = (p) => p.img ? `<img src="${p.img}" alt="${p.name}" loading="lazy">` : bottleSVG(p.color, p.name);
+function photoPH(text, tone){
+  return `<div class="ph" style="background:${tone};color:#fff">${text}</div>`;
+}
+
+/* hero + about */
+$("#heroArch").innerHTML = SHOP.heroImage ? `<img src="${SHOP.heroImage}" alt="Valleny Skincare">`
+  : `<div class="ph-hero">${bottleSVG(["#ecd5cb","#c98b77"],"hero").replace('<svg','<svg style="width:70%;border-radius:200px 200px 0 0"')}</div>`;
+$("#aboutImg").innerHTML = SHOP.aboutImage ? `<img src="${SHOP.aboutImage}" alt="Valleny founder">`
+  : photoPH("Founder photo goes here","linear-gradient(150deg,#d9b8a8,#a96a57)");
+
+/* marquee */
+const words = ["Glow from within","Real results","Gentle formulas","Made for our climate","Order on WhatsApp","Loved across Namibia"];
+$("#marquee").innerHTML = [...words,...words].map(w=>`<span>${w}</span>`).join("");
+
+/* shop */
+const cats = ["All", ...new Set(PRODUCTS.map(p=>p.cat))];
+let activeCat = "All";
+function renderFilters(){
+  $("#filters").innerHTML = cats.map(c=>`<button class="chip ${c===activeCat?'active':''}" data-c="${c}">${c}</button>`).join("");
+}
+function renderGrid(){
+  const list = PRODUCTS.filter(p=>activeCat==="All"||p.cat===activeCat);
+  $("#grid").innerHTML = list.map(p=>`
+    <article class="card">
+      <div class="card-img" data-open="${p.id}">${p.badge?`<span class="badge">${p.badge}</span>`:""}${media(p)}</div>
+      <div class="card-body">
+        <span class="card-cat">${p.cat}</span>
+        <h3>${p.name}</h3>
+        <p>${p.short}</p>
+        <button class="more" data-open="${p.id}">View details</button>
+        <div class="card-foot">
+          <span class="price">${money(p.price)}<small>${p.size}</small></span>
+          <button class="add" data-add="${p.id}" aria-label="Add ${p.name} to bag">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 5v14M5 12h14"/></svg>
+          </button>
+        </div>
+      </div>
+    </article>`).join("");
+}
+$("#filters").addEventListener("click",e=>{const c=e.target.dataset.c;if(!c)return;activeCat=c;renderFilters();renderGrid();});
+document.addEventListener("click",e=>{
+  const a=e.target.closest("[data-add]"); if(a){addToBag(a.dataset.add); a.classList.add("done"); setTimeout(()=>a.classList.remove("done"),900);}
+  const o=e.target.closest("[data-open]"); if(o) openModal(o.dataset.open);
+});
+
+/* modal */
+let modalId=null;
+function openModal(id){
+  const p=PRODUCTS.find(x=>x.id===id); modalId=id;
+  $("#mImg").innerHTML=media(p); $("#mCat").textContent=p.cat; $("#mName").textContent=p.name;
+  $("#mPrice").innerHTML=`${money(p.price)} <small style="font-family:Jost;font-size:.85rem;color:#7d6a61">· ${p.size}</small>`;
+  $("#mDesc").textContent=p.desc; $("#mUse").textContent=p.use;
+  $("#mFor").innerHTML=p.for.map(f=>`<li>${f}</li>`).join("");
+  $("#modal").classList.add("open"); $("#overlay").classList.add("open");
+}
+function closeAll(){["#modal","#drawer","#overlay"].forEach(s=>$(s).classList.remove("open"));$("#navLinks").classList.remove("open");}
+$("#closeModal").onclick=closeAll; $("#overlay").onclick=closeAll;
+$("#modal").addEventListener("click",e=>{if(e.target.id==="modal")closeAll();});
+$("#mAdd").onclick=()=>{addToBag(modalId);closeAll();};
+document.addEventListener("keydown",e=>{if(e.key==="Escape")closeAll();});
+
+/* bag */
+let bag={};
+try{bag=JSON.parse(localStorage.getItem("valleny-bag"))||{};}catch(e){}
+const save=()=>{try{localStorage.setItem("valleny-bag",JSON.stringify(bag));}catch(e){}};
+function addToBag(id,n=1){bag[id]=(bag[id]||0)+n; if(bag[id]<=0)delete bag[id]; save(); renderBag(); if(n>0)toast(`${PRODUCTS.find(p=>p.id===id).name} added to bag`);}
+function renderBag(){
+  const ids=Object.keys(bag).filter(id=>PRODUCTS.some(p=>p.id===id));
+  const count=ids.reduce((s,id)=>s+bag[id],0);
+  const total=ids.reduce((s,id)=>s+bag[id]*PRODUCTS.find(p=>p.id===id).price,0);
+  $("#bagCount").textContent=count; $("#bagCount").classList.toggle("show",count>0);
+  $("#bagTotal").textContent=money(total);
+  $("#bagItems").innerHTML = ids.length ? ids.map(id=>{const p=PRODUCTS.find(x=>x.id===id);return `
+    <div class="line"><div class="thumb">${media(p)}</div>
+      <div><b>${p.name}</b><div class="qty"><button data-q="${id}" data-d="-1">−</button>${bag[id]}<button data-q="${id}" data-d="1">+</button></div></div>
+      <span>${money(p.price*bag[id])}</span></div>`}).join("")
+    : `<div class="empty"><p style="font-family:var(--serif);font-size:1.5rem;color:var(--ink)">Your bag is empty</p><p>Add a product to start your glow routine.</p></div>`;
+  const lines=ids.map(id=>{const p=PRODUCTS.find(x=>x.id===id);return `• ${bag[id]} x ${p.name} (${p.size}) — ${money(p.price*bag[id])}`;});
+  const msg=`Hi Valleny Skincare! I'd like to order:\n\n${lines.join("\n")}\n\nTotal: ${money(total)}\n\nName:\nDelivery area:`;
+  $("#checkout").href = ids.length ? waLink(msg) : "#";
+  $("#checkout").style.opacity = ids.length?1:.5;
+}
+$("#bagItems").addEventListener("click",e=>{const b=e.target.closest("[data-q]");if(b)addToBag(b.dataset.q,+b.dataset.d);});
+$("#bagBtn").onclick=()=>{$("#drawer").classList.add("open");$("#overlay").classList.add("open");};
+$("#closeBag").onclick=closeAll;
+$("#checkout").addEventListener("click",e=>{if(!Object.keys(bag).length)e.preventDefault();});
+
+let tt; function toast(t){$("#toast").textContent=t;$("#toast").classList.add("show");clearTimeout(tt);tt=setTimeout(()=>$("#toast").classList.remove("show"),2200);}
+
+/* before / after */
+let caseIdx=0;
+function renderCase(){
+  const r=RESULTS[caseIdx];
+  $("#caseTabs").innerHTML=RESULTS.map((x,i)=>`<button class="${i===caseIdx?'active':''}" data-i="${i}">${x.tab}</button>`).join("");
+  $("#baBefore").innerHTML=(r.before?`<img src="${r.before}" alt="Before">`:photoPH("Before photo","linear-gradient(140deg,#8c6a5c,#5e4339)"))+`<span class="tag">Before</span>`;
+  $("#baAfter").innerHTML=(r.after?`<img src="${r.after}" alt="After">`:photoPH("After photo","linear-gradient(140deg,#e3b9a3,#c98b77)"))+`<span class="tag">After</span>`;
+  $("#caseTitle").textContent=r.title; $("#caseText").textContent=r.text;
+  $("#caseWeeks").textContent=r.weeks; $("#caseConcern").textContent=r.concern;
+  setBA(50);
+}
+$("#caseTabs").addEventListener("click",e=>{const i=e.target.dataset.i;if(i!==undefined){caseIdx=+i;renderCase();}});
+$("#caseShop").onclick=e=>{e.preventDefault();RESULTS[caseIdx].products.forEach(id=>addToBag(id));$("#drawer").classList.add("open");$("#overlay").classList.add("open");};
+function setBA(pct){pct=Math.max(0,Math.min(100,pct));$("#baBefore").style.clipPath=`inset(0 ${100-pct}% 0 0)`;$("#baHandle").style.left=pct+"%";}
+const ba=$("#ba"); let drag=false;
+const move=e=>{if(!drag)return;const r=ba.getBoundingClientRect();setBA((e.clientX-r.left)/r.width*100);};
+ba.addEventListener("pointerdown",e=>{drag=true;ba.setPointerCapture(e.pointerId);move(e);});
+ba.addEventListener("pointermove",move);
+ba.addEventListener("pointerup",()=>drag=false);
+
+/* reviews + contact */
+$("#reviews").innerHTML=REVIEWS.map(r=>`<div class="rev reveal"><div class="stars">★★★★★</div><blockquote>“${r.text}”</blockquote>
+  <div class="who"><div class="av">${r.name[0]}</div><div>${r.name}<small>${r.town}</small></div></div></div>`).join("");
+$("#contactList").innerHTML=`
+  <a href="${waLink("Hi Valleny Skincare! I'd like some advice on my skin.")}" target="_blank" rel="noopener"><span style="font-size:1.4rem">💬</span><span><small>WhatsApp</small>${SHOP.phoneDisplay}</span></a>
+  <a href="https://instagram.com/${SHOP.instagram}" target="_blank" rel="noopener"><span style="font-size:1.4rem">📷</span><span><small>Instagram</small>@${SHOP.instagram}</span></a>
+  <a href="mailto:${SHOP.email}"><span style="font-size:1.4rem">✉️</span><span><small>Email</small>${SHOP.email}</span></a>`;
+$("#waFloat").href=waLink("Hi Valleny Skincare! 👋");
+$("#yr").textContent=new Date().getFullYear();
+
+/* mobile menu */
+$("#menuBtn").onclick=()=>$("#navLinks").classList.toggle("open");
+$("#navLinks").addEventListener("click",e=>{if(e.target.tagName==="A")$("#navLinks").classList.remove("open");});
+
+/* reveal + counters */
+const io=new IntersectionObserver(es=>es.forEach(en=>{if(!en.isIntersecting)return;en.target.classList.add("in");
+  en.target.querySelectorAll("[data-count]").forEach(el=>{const end=+el.dataset.count,dec=+(el.dataset.dec||0);let t0=null;
+    const step=t=>{t0??=t;const k=Math.min((t-t0)/1400,1);el.textContent=(end*(1-Math.pow(1-k,3))).toFixed(dec)+(k===1&&!dec&&end>=100?"+":"");if(k<1)requestAnimationFrame(step);};requestAnimationFrame(step);});
+  io.unobserve(en.target);}),{threshold:.15});
+
+renderFilters(); renderGrid(); renderBag(); renderCase();
+document.querySelectorAll(".reveal").forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
