@@ -114,8 +114,8 @@ header{position:sticky;top:0;z-index:50;background:rgba(247,241,234,.85);backdro
 .results{background:var(--cocoa);color:var(--cream)}
 .results .eyebrow{color:var(--blush)}
 .results .sec-head p{color:rgba(247,241,234,.7)}
-.results-grid{display:grid;grid-template-columns:1.25fr 1fr;gap:56px;align-items:center}
-.ba{position:relative;aspect-ratio:4/3.4;border-radius:var(--radius);overflow:hidden;user-select:none;touch-action:none;cursor:ew-resize;box-shadow:0 30px 60px -25px rgba(0,0,0,.6)}
+.results-grid{display:grid;grid-template-columns:1.25fr 1fr;gap:56px;align-items:start}
+.ba{position:relative;aspect-ratio:1/1;border-radius:var(--radius);overflow:hidden;user-select:none;touch-action:pan-y;cursor:ew-resize;box-shadow:0 30px 60px -25px rgba(0,0,0,.6)}
 .ba .layer{position:absolute;inset:0}
 .ba .layer img{width:100%;height:100%;object-fit:cover}
 .ba .before{clip-path:inset(0 50% 0 0)}
@@ -136,6 +136,11 @@ header{position:sticky;top:0;z-index:50;background:rgba(247,241,234,.85);backdro
 .results .btn-dark:hover{background:var(--blush)}
 
 /* results gallery */
+.ba-col{display:flex;flex-direction:column;gap:14px}
+.ba-pair{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.ba-pair .ba-ph{border-radius:var(--radius);box-shadow:0 30px 60px -25px rgba(0,0,0,.6)}
+.ba-pair .tag{font-size:.74rem;padding:.4rem .85rem;left:12px;bottom:12px}
+.ba-hint{text-align:center;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(247,241,234,.55);margin:-2px 0 6px}
 .ba-rows{display:flex;flex-direction:column;gap:14px}
 .ba-row{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
 .ba-ph{position:relative;aspect-ratio:4/5;border-radius:16px;overflow:hidden;cursor:zoom-in;background:#2a1f1b}
@@ -438,7 +443,14 @@ footer{border-top:1px solid var(--line);padding:2.6rem 0;font-size:.85rem;color:
         <p>Real photos from real clients — tap any photo to see it larger.</p>
       </div>
       <div class="results-grid">
-        <div class="ba-rows reveal" id="baRows"></div>
+        <div class="ba-col reveal">
+          <div class="ba-pair">
+            <div class="ba-ph" data-lb="images/results/feature-before.jpg"><img src="images/results/feature-before.jpg" alt="Before — Valleny client"><span class="tag">Before</span></div>
+            <div class="ba-ph after" data-lb="images/results/feature-after.jpg"><img src="images/results/feature-after.jpg" alt="After — Valleny client"><span class="tag">After</span></div>
+          </div>
+          <p class="ba-hint">Same client · before &amp; after her Valleny routine</p>
+          <div class="ba-rows" id="baRows"></div>
+        </div>
         <div class="case-info reveal">
           <h3>Clearer skin is possible.</h3>
           <p>These are real Valleny clients — breakouts, dark marks and uneven texture at the start, and calm, glowing skin after following a routine built for them. Every skin is different, so we start by understanding yours.</p>
@@ -818,6 +830,7 @@ $("#closeBag").onclick=closeAll;
 $("#checkout").addEventListener("click",e=>{if(!Object.keys(bag).length)e.preventDefault();});
 
 let tt; function toast(t){$("#toast").textContent=t;$("#toast").classList.add("show");clearTimeout(tt);tt=setTimeout(()=>$("#toast").classList.remove("show"),2200);}
+
 
 /* before / after gallery */
 const tile=(src,kind)=>`<div class="ba-ph ${kind}" data-lb="${src}"><img src="${src}" alt="${kind==="after"?"After":"Before"} — Valleny client" loading="lazy"><span class="tag">${kind==="after"?"After":"Before"}</span></div>`;
