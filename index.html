@@ -280,7 +280,7 @@ footer{border-top:1px solid var(--line);padding:2.6rem 0;font-size:.85rem;color:
       <div class="reveal">
         <span class="eyebrow">Gentle formulas · Visible results</span>
         <h1>Skin that <em>glows</em> from within.</h1>
-        <p class="lead">Thoughtfully made skincare for clear, even and radiant skin — chosen for our climate and loved by real customers. See the results for yourself.</p>
+        <p class="lead">Trusted Korean and dermatologist-favourite skincare for clear, even and radiant skin — hand-picked and loved by real customers. See the results for yourself.</p>
         <div class="hero-cta">
           <a href="#shop" class="btn btn-dark">Shop the collection →</a>
           <a href="#results" class="btn btn-ghost">See before &amp; after</a>
@@ -309,6 +309,7 @@ footer{border-top:1px solid var(--line);padding:2.6rem 0;font-size:.85rem;color:
         <h2>Shop Valleny</h2>
         <p>Tap a product for full details, how to use it and what it targets. Add to your bag and send your order on WhatsApp in one tap.</p>
       </div>
+      <input id="search" type="search" placeholder="Search products — e.g. niacinamide, Anua, sunscreen" style="display:block;width:min(520px,100%);margin:0 auto 22px;padding:.9rem 1.3rem;border-radius:999px;border:1px solid var(--line);background:var(--white);font:inherit;font-size:.95rem">
       <div class="filters" id="filters"></div>
       <div class="grid" id="grid"></div>
     </div>
@@ -481,66 +482,78 @@ const SHOP = {
 };
 
 const PRODUCTS = [
-  { id:"glow-serum", name:"Radiance Glow Serum", cat:"Serums", price:450, size:"30 ml", badge:"Bestseller",
-    short:"Vitamin C serum that fades dark spots and brightens dull skin.",
-    desc:"A lightweight daily serum that evens out skin tone, fades hyperpigmentation and gives a healthy, lit-from-within glow.",
-    for:["Dark spots & uneven tone","Dull, tired skin","All skin types"],
-    use:"Apply 3–4 drops to clean skin every morning before moisturiser. Always follow with SPF.",
-    img:"", color:["#f2c9a0","#e2a06f"] },
-  { id:"clear-serum", name:"Clear Skin Serum", cat:"Serums", price:420, size:"30 ml", badge:"",
-    short:"Niacinamide serum for breakouts, oil control and smaller-looking pores.",
-    desc:"Calms active breakouts, controls shine and refines texture without drying your skin out.",
-    for:["Acne & breakouts","Oily skin","Enlarged pores"],
-    use:"Apply 2–3 drops morning and night after cleansing.",
-    img:"", color:["#dfe5d4","#a8b796"] },
-  { id:"gentle-cleanser", name:"Gentle Foaming Cleanser", cat:"Cleansers", price:280, size:"150 ml", badge:"",
-    short:"Soft foam that cleans deeply while keeping skin soft and balanced.",
-    desc:"A pH-balanced daily cleanser that removes dirt, oil and makeup without that tight, stripped feeling.",
-    for:["Daily cleansing","Sensitive skin","All skin types"],
-    use:"Massage onto damp skin for 60 seconds, rinse with lukewarm water. Use morning and night.",
-    img:"", color:["#f6ece2","#e4cdb8"] },
-  { id:"hydra-cream", name:"Hydra Barrier Cream", cat:"Moisturisers", price:390, size:"50 ml", badge:"New",
-    short:"Rich yet non-greasy moisturiser that repairs and protects your skin barrier.",
-    desc:"Deep, long-lasting hydration with ceramides and shea to soothe dryness and keep skin plump all day.",
-    for:["Dry & dehydrated skin","Sensitive skin","Night repair"],
-    use:"Smooth a pea-sized amount over face and neck morning and night.",
-    img:"", color:["#f3dcd3","#d9a796"] },
-  { id:"spf", name:"Daily Shield SPF 50", cat:"Moisturisers", price:350, size:"50 ml", badge:"",
-    short:"Invisible, no white-cast sunscreen made for everyday wear.",
-    desc:"High protection against sun damage and dark spots, with a light finish that sits beautifully under makeup.",
-    for:["Daily protection","Preventing dark spots","All skin tones — no white cast"],
-    use:"Apply generously as the last step every morning. Reapply every 2–3 hours in the sun.",
-    img:"", color:["#fbe9c8","#efc884"] },
-  { id:"body-oil", name:"Glow Body Oil", cat:"Body", price:320, size:"100 ml", badge:"",
-    short:"Nourishing body oil for soft, even and glowing skin.",
-    desc:"A blend of nourishing oils that softens rough patches, fades marks and leaves a subtle golden sheen.",
-    for:["Dry body skin","Stretch marks & dark marks","Healthy glow"],
-    use:"Massage onto damp skin after showering.",
-    img:"", color:["#ecc9a8","#c98b55"] },
-  { id:"body-scrub", name:"Brightening Body Scrub", cat:"Body", price:260, size:"200 g", badge:"",
-    short:"Sugar scrub that buffs away dullness for smooth, even skin.",
-    desc:"Exfoliates dead skin, helps with ingrown hairs and dark areas, and preps skin to absorb your body oil.",
-    for:["Rough, dull skin","Dark knees & elbows","Ingrown hairs"],
-    use:"Massage onto wet skin 2–3 times a week, then rinse.",
-    img:"", color:["#f0d8cf","#c98b77"] },
-  { id:"glow-set", name:"Complete Glow Set", cat:"Sets", price:1290, size:"4 products", badge:"Save N$ 210",
-    short:"Cleanser, Glow Serum, Barrier Cream and SPF — your full routine.",
-    desc:"Everything you need for brighter, clearer, protected skin — at a better price than buying separately.",
-    for:["Starting a full routine","Gifting","Dark spots & dullness"],
-    use:"Follow our 4-step routine: cleanse, treat, moisturise, protect.",
-    img:"", color:["#3b2a24","#a96a57"] }
+  {"id": "centella-light-cleansing-oil", "name": "Centella Light Cleansing Oil", "cat": "Cleansers", "price": 450, "size": "", "badge": "", "short": "Melts away sunscreen, makeup and excess oil without stripping the skin.", "desc": "", "for": [], "use": "", "img": "", "color": ["#f6ece2", "#e4cdb8"]},
+  {"id": "centella-tone-brightening-gel-foam", "name": "Centella Tone Brightening Gel Foam", "cat": "Cleansers", "price": 420, "size": "", "badge": "", "short": "Gentle gel-to-foam cleanser that brightens while it cleans.", "desc": "", "for": [], "use": "", "img": "", "color": ["#f6ece2", "#e4cdb8"]},
+  {"id": "seoul-1988-cleansing-foam", "name": "Seoul 1988 Cleansing Foam", "cat": "Cleansers", "price": 420, "size": "", "badge": "", "short": "Soft daily foam cleanser for fresh, balanced skin.", "desc": "", "for": [], "use": "", "img": "", "color": ["#f6ece2", "#e4cdb8"]},
+  {"id": "kojic-acid-body-cleanser", "name": "Kojic Acid Body Cleanser", "cat": "Cleansers", "price": 700, "size": "", "badge": "", "short": "Body wash with kojic acid to help fade dark marks and even body tone.", "desc": "", "for": [], "use": "", "img": "", "color": ["#f6ece2", "#e4cdb8"]},
+  {"id": "panoxyl-body-wash", "name": "PanOxyl Body Wash", "cat": "Cleansers", "price": 450, "size": "", "badge": "", "short": "Benzoyl peroxide wash for body breakouts on the back and chest.", "desc": "", "for": [], "use": "", "img": "", "color": ["#f6ece2", "#e4cdb8"]},
+  {"id": "centella-tone-brightening-boosting-toner", "name": "Centella Tone Brightening Boosting Toner", "cat": "Toners", "price": 450, "size": "", "badge": "", "short": "Calming centella toner that boosts brightness and evens tone.", "desc": "", "for": [], "use": "", "img": "", "color": ["#dfe5d4", "#a8b796"]},
+  {"id": "dark-spot-correcting-glow-toner", "name": "Dark Spot Correcting Glow Toner", "cat": "Toners", "price": 400, "size": "", "badge": "", "short": "Brightening toner that targets dark spots and dullness.", "desc": "", "for": [], "use": "", "img": "", "color": ["#dfe5d4", "#a8b796"]},
+  {"id": "kojic-acid-toner", "name": "Kojic Acid Toner", "cat": "Toners", "price": 400, "size": "", "badge": "", "short": "Kojic acid toner to fade pigmentation and brighten skin.", "desc": "", "for": [], "use": "", "img": "", "color": ["#dfe5d4", "#a8b796"]},
+  {"id": "kojic-toner-large", "name": "Kojic Toner (Large)", "cat": "Toners", "price": 550, "size": "", "badge": "", "short": "Brightening kojic toner for uneven tone and dark marks.", "desc": "", "for": [], "use": "", "img": "", "color": ["#dfe5d4", "#a8b796"]},
+  {"id": "anua-5-niacinamide-toner", "name": "Anua 5+ Niacinamide Toner", "cat": "Toners", "price": 550, "size": "", "badge": "", "short": "Niacinamide toner that brightens, refines pores and hydrates.", "desc": "", "for": [], "use": "", "img": "", "color": ["#dfe5d4", "#a8b796"]},
+  {"id": "anua-heartleaf-toner", "name": "Anua Heartleaf Toner", "cat": "Toners", "price": 450, "size": "", "badge": "Popular", "short": "Soothing heartleaf toner that calms redness and irritation.", "desc": "", "for": [], "use": "", "img": "", "color": ["#dfe5d4", "#a8b796"]},
+  {"id": "centella-probio-cica-essence-toner", "name": "Centella Probio-Cica Essence Toner", "cat": "Toners", "price": 450, "size": "", "badge": "", "short": "Hydrating essence toner that strengthens and soothes the skin barrier.", "desc": "", "for": [], "use": "", "img": "", "color": ["#dfe5d4", "#a8b796"]},
+  {"id": "seoul-1988-essence", "name": "Seoul 1988 Essence", "cat": "Toners", "price": 450, "size": "", "badge": "", "short": "Nourishing essence for plump, hydrated, glowing skin.", "desc": "", "for": [], "use": "", "img": "", "color": ["#dfe5d4", "#a8b796"]},
+  {"id": "vt-reedle-shot", "name": "VT Reedle Shot", "cat": "Serums", "price": 400, "size": "", "badge": "Popular", "short": "Micro-needle essence that refines texture and boosts absorption.", "desc": "", "for": [], "use": "", "img": "", "color": ["#f2c9a0", "#e2a06f"]},
+  {"id": "arbutin-serum", "name": "Arbutin Serum", "cat": "Serums", "price": 400, "size": "", "badge": "", "short": "Arbutin serum that fades dark spots and hyperpigmentation.", "desc": "", "for": [], "use": "", "img": "", "color": ["#f2c9a0", "#e2a06f"]},
+  {"id": "dark-spot-correcting-glow-serum", "name": "Dark Spot Correcting Glow Serum", "cat": "Serums", "price": 380, "size": "", "badge": "Bestseller", "short": "Targets stubborn dark spots for a brighter, more even glow.", "desc": "", "for": [], "use": "", "img": "", "color": ["#f2c9a0", "#e2a06f"]},
+  {"id": "discoloration-correcting-serum", "name": "Discoloration Correcting Serum", "cat": "Serums", "price": 380, "size": "", "badge": "", "short": "Serum for discoloration, dark marks and uneven skin tone.", "desc": "", "for": [], "use": "", "img": "", "color": ["#f2c9a0", "#e2a06f"]},
+  {"id": "topicals-faded-serum", "name": "Topicals Faded Serum", "cat": "Serums", "price": 400, "size": "", "badge": "", "short": "Brightening serum for dark spots and post-acne marks.", "desc": "", "for": [], "use": "", "img": "", "color": ["#f2c9a0", "#e2a06f"]},
+  {"id": "medicube-txa-niacinamide-15-serum", "name": "Medicube TXA Niacinamide 15 Serum", "cat": "Serums", "price": 380, "size": "", "badge": "", "short": "Tranexamic acid and niacinamide serum for pigmentation.", "desc": "", "for": [], "use": "", "img": "", "color": ["#f2c9a0", "#e2a06f"]},
+  {"id": "anua-10-niacinamide-serum", "name": "Anua 10+ Niacinamide Serum", "cat": "Serums", "price": 380, "size": "", "badge": "", "short": "High-strength niacinamide for dark spots, pores and oil control.", "desc": "", "for": [], "use": "", "img": "", "color": ["#f2c9a0", "#e2a06f"]},
+  {"id": "anua-azelaic-acid-serum", "name": "Anua Azelaic Acid Serum", "cat": "Serums", "price": 380, "size": "", "badge": "", "short": "Azelaic acid serum that calms redness and clears congestion.", "desc": "", "for": [], "use": "", "img": "", "color": ["#f2c9a0", "#e2a06f"]},
+  {"id": "dr-althea-vitamin-c-serum", "name": "Dr. Althea Vitamin C Serum", "cat": "Serums", "price": 380, "size": "", "badge": "", "short": "Vitamin C serum for brightness and a healthy glow.", "desc": "", "for": [], "use": "", "img": "", "color": ["#f2c9a0", "#e2a06f"]},
+  {"id": "vitamin-concentrated-serum", "name": "Vitamin Concentrated Serum", "cat": "Serums", "price": 380, "size": "", "badge": "", "short": "Concentrated vitamin serum for dull, tired skin.", "desc": "", "for": [], "use": "", "img": "", "color": ["#f2c9a0", "#e2a06f"]},
+  {"id": "equal-berry-vitamin-illuminating-serum", "name": "Equal Berry Vitamin Illuminating Serum", "cat": "Serums", "price": 380, "size": "", "badge": "", "short": "Vitamin-rich serum that illuminates and evens skin tone.", "desc": "", "for": [], "use": "", "img": "", "color": ["#f2c9a0", "#e2a06f"]},
+  {"id": "celimax-retinol-serum", "name": "Celimax Retinol Serum", "cat": "Serums", "price": 380, "size": "", "badge": "", "short": "Gentle retinol serum for texture, fine lines and clarity.", "desc": "", "for": [], "use": "", "img": "", "color": ["#f2c9a0", "#e2a06f"]},
+  {"id": "centella-probio-cica-intensive-ampoule", "name": "Centella Probio-Cica Intensive Ampoule", "cat": "Serums", "price": 420, "size": "", "badge": "", "short": "Concentrated ampoule that repairs and soothes the skin barrier.", "desc": "", "for": [], "use": "", "img": "", "color": ["#f2c9a0", "#e2a06f"]},
+  {"id": "madagascar-centella-tone-brightening-capsule-ampoule", "name": "Madagascar Centella Tone Brightening Capsule Ampoule", "cat": "Serums", "price": 420, "size": "", "badge": "", "short": "Brightening capsule ampoule for a clearer, even complexion.", "desc": "", "for": [], "use": "", "img": "", "color": ["#f2c9a0", "#e2a06f"]},
+  {"id": "madagascar-centella-ampoule", "name": "Madagascar Centella Ampoule", "cat": "Serums", "price": 150, "size": "", "badge": "", "short": "Calming centella ampoule for sensitive, irritated skin.", "desc": "", "for": [], "use": "", "img": "", "color": ["#f2c9a0", "#e2a06f"]},
+  {"id": "centella-tea-trica-relief-ampoule", "name": "Centella Tea-Trica Relief Ampoule", "cat": "Serums", "price": 150, "size": "", "badge": "", "short": "Tea tree and centella ampoule that calms breakouts.", "desc": "", "for": [], "use": "", "img": "", "color": ["#f2c9a0", "#e2a06f"]},
+  {"id": "skinoren-azelaic-acid-20", "name": "Skinoren Azelaic Acid 20%", "cat": "Treatments", "price": 400, "size": "", "badge": "", "short": "Azelaic acid cream for acne, redness and dark marks.", "desc": "", "for": [], "use": "", "img": "", "color": ["#f3dcd3", "#d9a796"]},
+  {"id": "finacea-azelaic-acid-15", "name": "Finacea Azelaic Acid 15%", "cat": "Treatments", "price": 400, "size": "", "badge": "", "short": "Azelaic acid gel for redness, bumps and uneven tone.", "desc": "", "for": [], "use": "", "img": "", "color": ["#f3dcd3", "#d9a796"]},
+  {"id": "azelaic-acid-15", "name": "Azelaic Acid 15%", "cat": "Treatments", "price": 300, "size": "", "badge": "", "short": "Azelaic acid treatment for breakouts and dark spots.", "desc": "", "for": [], "use": "", "img": "", "color": ["#f3dcd3", "#d9a796"]},
+  {"id": "azelaic-acid-gel-20", "name": "Azelaic Acid Gel 20%", "cat": "Treatments", "price": 300, "size": "", "badge": "", "short": "Lightweight azelaic acid gel for acne and pigmentation.", "desc": "", "for": [], "use": "", "img": "", "color": ["#f3dcd3", "#d9a796"]},
+  {"id": "tretinoin-gel-usp-0-025", "name": "Tretinoin Gel USP 0.025%", "cat": "Treatments", "price": 350, "size": "", "badge": "", "short": "Starter-strength retinoid gel for acne and texture.", "desc": "", "for": [], "use": "", "img": "", "color": ["#f3dcd3", "#d9a796"]},
+  {"id": "tretinoin-gel-usp-0-05", "name": "Tretinoin Gel USP 0.05%", "cat": "Treatments", "price": 350, "size": "", "badge": "", "short": "Mid-strength retinoid gel for acne, texture and fine lines.", "desc": "", "for": [], "use": "", "img": "", "color": ["#f3dcd3", "#d9a796"]},
+  {"id": "tretinoin-gel-usp-0-1", "name": "Tretinoin Gel USP 0.1%", "cat": "Treatments", "price": 350, "size": "", "badge": "", "short": "Full-strength retinoid gel for experienced users.", "desc": "", "for": [], "use": "", "img": "", "color": ["#f3dcd3", "#d9a796"]},
+  {"id": "hypochlorous-body-peel-shot", "name": "Hypochlorous Body Peel Shot", "cat": "Treatments", "price": 700, "size": "", "badge": "", "short": "Body peel treatment for rough, uneven and darkened skin.", "desc": "", "for": [], "use": "", "img": "", "color": ["#f3dcd3", "#d9a796"]},
+  {"id": "new-skin-resolution-gel-mask", "name": "New Skin Resolution Gel Mask", "cat": "Treatments", "price": 400, "size": "", "badge": "", "short": "Cooling gel mask that hydrates and refreshes tired skin.", "desc": "", "for": [], "use": "", "img": "", "color": ["#f3dcd3", "#d9a796"]},
+  {"id": "purito-seoul-mighty-bamboo-panthenol-cream", "name": "Purito Seoul Mighty Bamboo Panthenol Cream", "cat": "Moisturisers", "price": 400, "size": "", "badge": "", "short": "Hydrating panthenol cream that soothes and repairs.", "desc": "", "for": [], "use": "", "img": "", "color": ["#f0d8cf", "#c98b77"]},
+  {"id": "ongredients-skin-barrier-calming-lotion", "name": "Ongredients Skin Barrier Calming Lotion", "cat": "Moisturisers", "price": 450, "size": "", "badge": "", "short": "Lightweight lotion that calms and protects the skin barrier.", "desc": "", "for": [], "use": "", "img": "", "color": ["#f0d8cf", "#c98b77"]},
+  {"id": "dark-spot-correcting-glow-cream", "name": "Dark Spot Correcting Glow Cream", "cat": "Moisturisers", "price": 380, "size": "", "badge": "", "short": "Moisturiser that brightens dark spots while it hydrates.", "desc": "", "for": [], "use": "", "img": "", "color": ["#f0d8cf", "#c98b77"]},
+  {"id": "centella-soothing-cream", "name": "Centella Soothing Cream", "cat": "Moisturisers", "price": 380, "size": "", "badge": "", "short": "Calming centella cream for sensitive, reactive skin.", "desc": "", "for": [], "use": "", "img": "", "color": ["#f0d8cf", "#c98b77"]},
+  {"id": "probio-cica-enrich-cream", "name": "Probio-Cica Enrich Cream", "cat": "Moisturisers", "price": 550, "size": "", "badge": "", "short": "Rich barrier cream with probiotics and cica for deep comfort.", "desc": "", "for": [], "use": "", "img": "", "color": ["#f0d8cf", "#c98b77"]},
+  {"id": "seoul-1988-cream", "name": "Seoul 1988 Cream", "cat": "Moisturisers", "price": 400, "size": "", "badge": "", "short": "Nourishing cream for soft, plump, glowing skin.", "desc": "", "for": [], "use": "", "img": "", "color": ["#f0d8cf", "#c98b77"]},
+  {"id": "dr-althea-345-relief-cream", "name": "Dr. Althea 345 Relief Cream", "cat": "Moisturisers", "price": 400, "size": "", "badge": "", "short": "Soothing relief cream that calms irritation and redness.", "desc": "", "for": [], "use": "", "img": "", "color": ["#f0d8cf", "#c98b77"]},
+  {"id": "dr-althea-147-barrier-cream", "name": "Dr. Althea 147 Barrier Cream", "cat": "Moisturisers", "price": 400, "size": "", "badge": "", "short": "Barrier cream that strengthens and protects dry skin.", "desc": "", "for": [], "use": "", "img": "", "color": ["#f0d8cf", "#c98b77"]},
+  {"id": "dr-althea-cream", "name": "Dr. Althea Cream", "cat": "Moisturisers", "price": 400, "size": "", "badge": "", "short": "Gentle daily cream for balanced, comfortable skin.", "desc": "", "for": [], "use": "", "img": "", "color": ["#f0d8cf", "#c98b77"]},
+  {"id": "madeca-cream", "name": "Madeca Cream", "cat": "Moisturisers", "price": 400, "size": "", "badge": "", "short": "Centella cream that repairs and soothes damaged skin.", "desc": "", "for": [], "use": "", "img": "", "color": ["#f0d8cf", "#c98b77"]},
+  {"id": "zero-pore-cream", "name": "Zero Pore Cream", "cat": "Moisturisers", "price": 400, "size": "", "badge": "", "short": "Lightweight cream that refines the look of pores.", "desc": "", "for": [], "use": "", "img": "", "color": ["#f0d8cf", "#c98b77"]},
+  {"id": "collagen-boosting-secret-sun-lotion", "name": "Collagen Boosting Secret Sun Lotion", "cat": "Sun care", "price": 400, "size": "", "badge": "", "short": "Lightweight sun lotion that protects while it hydrates.", "desc": "", "for": [], "use": "", "img": "", "color": ["#fbe9c8", "#efc884"]},
+  {"id": "la-roche-posay-sunscreen", "name": "La Roche-Posay Sunscreen", "cat": "Sun care", "price": 380, "size": "", "badge": "Bestseller", "short": "Dermatologist-favourite high-protection sunscreen.", "desc": "", "for": [], "use": "", "img": "", "color": ["#fbe9c8", "#efc884"]}
 ];
+
+const CAT_INFO = {
+  "Cleansers":{for:["Removing dirt, oil, sunscreen & makeup","Prepping skin for treatments"],use:"Massage onto damp skin for about 60 seconds, then rinse. Use morning and/or night."},
+  "Toners":{for:["Balancing & hydrating after cleansing","Boosting your serums"],use:"After cleansing, pat into skin with your hands or a cotton pad before serums."},
+  "Serums":{for:["Targeting a specific concern","Dark spots, breakouts, dullness or sensitivity"],use:"Apply a few drops to clean skin after toner, before moisturiser."},
+  "Treatments":{for:["Acne, dark marks and texture","Experienced routines"],use:"Use as directed on the pack. Start slowly (2–3 nights a week), avoid the eye area, always wear SPF in the day, and message us for guidance before starting acids or tretinoin."},
+  "Moisturisers":{for:["Locking in hydration","Strengthening the skin barrier"],use:"Apply as the last step of your routine, morning and night (before SPF in the morning)."},
+  "Sun care":{for:["Daily protection","Keeping dark spots from coming back"],use:"Apply generously every morning as the last step. Reapply every 2–3 hours in the sun."}
+};
 
 const RESULTS = [
   { tab:"Dark spots", title:"Faded dark spots", concern:"Hyperpigmentation", weeks:"8 weeks",
     text:"After 8 weeks of the Radiance Glow Serum and daily SPF, her dark spots softened noticeably and her overall tone became more even.",
-    before:"", after:"", products:["glow-serum","spf"] },
+    before:"", after:"", products:["dark-spot-correcting-glow-serum","la-roche-posay-sunscreen"] },
   { tab:"Breakouts", title:"Calmer, clearer skin", concern:"Acne", weeks:"6 weeks",
     text:"Active breakouts calmed within the first month using the Clear Skin Serum and Gentle Cleanser, with fewer new spots appearing.",
-    before:"", after:"", products:["clear-serum","gentle-cleanser"] },
+    before:"", after:"", products:["anua-azelaic-acid-serum","centella-tone-brightening-gel-foam"] },
   { tab:"Glow", title:"From dull to glowing", concern:"Dullness", weeks:"4 weeks",
     text:"The Complete Glow Set brought back radiance and smoother texture in just four weeks of consistent use.",
-    before:"", after:"", products:["glow-set"] }
+    before:"", after:"", products:["anua-heartleaf-toner","anua-10-niacinamide-serum","centella-soothing-cream"] }
 ];
 
 const REVIEWS = [
@@ -592,7 +605,9 @@ function renderFilters(){
   $("#filters").innerHTML = cats.map(c=>`<button class="chip ${c===activeCat?'active':''}" data-c="${c}">${c}</button>`).join("");
 }
 function renderGrid(){
-  const list = PRODUCTS.filter(p=>activeCat==="All"||p.cat===activeCat);
+  const q=($("#search").value||"").toLowerCase().trim();
+  const list = PRODUCTS.filter(p=>(activeCat==="All"||p.cat===activeCat)&&(!q||(p.name+" "+p.short+" "+p.cat).toLowerCase().includes(q)));
+  if(!list.length){$("#grid").innerHTML=`<p style="grid-column:1/-1;text-align:center;color:var(--muted)">No products found. Message us — we may still have it!</p>`;return;}
   $("#grid").innerHTML = list.map(p=>`
     <article class="card">
       <div class="card-img" data-open="${p.id}">${p.badge?`<span class="badge">${p.badge}</span>`:""}${media(p)}</div>
@@ -621,9 +636,10 @@ let modalId=null;
 function openModal(id){
   const p=PRODUCTS.find(x=>x.id===id); modalId=id;
   $("#mImg").innerHTML=media(p); $("#mCat").textContent=p.cat; $("#mName").textContent=p.name;
-  $("#mPrice").innerHTML=`${money(p.price)} <small style="font-family:Jost;font-size:.85rem;color:#7d6a61">· ${p.size}</small>`;
-  $("#mDesc").textContent=p.desc; $("#mUse").textContent=p.use;
-  $("#mFor").innerHTML=p.for.map(f=>`<li>${f}</li>`).join("");
+  const ci=CAT_INFO[p.cat]||{for:[],use:""};
+  $("#mPrice").innerHTML=money(p.price)+(p.size?` <small style="font-family:Jost;font-size:.85rem;color:#7d6a61">· ${p.size}</small>`:"");
+  $("#mDesc").textContent=p.desc||p.short; $("#mUse").textContent=p.use||ci.use;
+  $("#mFor").innerHTML=((p.for&&p.for.length)?p.for:ci.for).map(f=>`<li>${f}</li>`).join("");
   $("#modal").classList.add("open"); $("#overlay").classList.add("open");
 }
 function closeAll(){["#modal","#drawer","#overlay"].forEach(s=>$(s).classList.remove("open"));$("#navLinks").classList.remove("open");}
@@ -648,7 +664,7 @@ function renderBag(){
       <div><b>${p.name}</b><div class="qty"><button data-q="${id}" data-d="-1">−</button>${bag[id]}<button data-q="${id}" data-d="1">+</button></div></div>
       <span>${money(p.price*bag[id])}</span></div>`}).join("")
     : `<div class="empty"><p style="font-family:var(--serif);font-size:1.5rem;color:var(--ink)">Your bag is empty</p><p>Add a product to start your glow routine.</p></div>`;
-  const lines=ids.map(id=>{const p=PRODUCTS.find(x=>x.id===id);return `• ${bag[id]} x ${p.name} (${p.size}) — ${money(p.price*bag[id])}`;});
+  const lines=ids.map(id=>{const p=PRODUCTS.find(x=>x.id===id);return `• ${bag[id]} x ${p.name} — ${money(p.price*bag[id])}`;});
   const msg=`Hi Valleny Skincare! I'd like to order:\n\n${lines.join("\n")}\n\nTotal: ${money(total)}\n\nName:\nDelivery area:`;
   $("#checkout").href = ids.length ? waLink(msg) : "#";
   $("#checkout").style.opacity = ids.length?1:.5;
@@ -700,6 +716,7 @@ const io=new IntersectionObserver(es=>es.forEach(en=>{if(!en.isIntersecting)retu
     const step=t=>{t0??=t;const k=Math.min((t-t0)/1400,1);el.textContent=(end*(1-Math.pow(1-k,3))).toFixed(dec)+(k===1&&!dec&&end>=100?"+":"");if(k<1)requestAnimationFrame(step);};requestAnimationFrame(step);});
   io.unobserve(en.target);}),{threshold:.15});
 
+$("#search").addEventListener("input",renderGrid);
 renderFilters(); renderGrid(); renderBag(); renderCase();
 document.querySelectorAll(".reveal").forEach(el=>io.observe(el));
 </script>
