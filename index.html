@@ -483,6 +483,7 @@ const SHOP = {
   whatsapp: "264818598633",            // client's number, country code, no + or spaces
   phoneDisplay: "+264 81 859 8633",
   tiktok: "vallenyskincarecomestics",
+  instagram: "ms_valleny_t",
   email: "Vallentiastebiki@gmail.com",
   currency: "N$",
   heroImage: "images/hero.jpg",                        // e.g. "images/hero.jpg"
@@ -723,6 +724,7 @@ $("#reviews").innerHTML=REVIEWS.map(r=>`<div class="rev reveal"><div class="star
 $("#contactList").innerHTML=`
   <a href="${waLink("Hi Valleny Skincare! I'd like some advice on my skin.")}" target="_blank" rel="noopener"><span style="font-size:1.4rem">💬</span><span><small>WhatsApp</small>${SHOP.phoneDisplay}</span></a>
   <a href="https://www.tiktok.com/@${SHOP.tiktok}" target="_blank" rel="noopener"><span style="display:grid;place-items:center;width:24px"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M16.6 5.8A4.3 4.3 0 0 1 15.5 3h-3.1v12.4a2.6 2.6 0 1 1-2.6-2.6c.3 0 .5 0 .8.1V9.7a5.7 5.7 0 1 0 4.9 5.7V9a7.4 7.4 0 0 0 4.3 1.4V7.3a4.3 4.3 0 0 1-3.2-1.5Z"/></svg></span><span><small>TikTok</small>@${SHOP.tiktok}</span></a>
+  <a href="https://www.instagram.com/${SHOP.instagram}/" target="_blank" rel="noopener"><span style="display:grid;place-items:center;width:24px"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></span><span><small>Instagram</small>@${SHOP.instagram}</span></a>
   <a href="mailto:${SHOP.email}"><span style="font-size:1.4rem">✉️</span><span><small>Email</small>${SHOP.email}</span></a>`;
 $("#waFloat").href=waLink("Hi Valleny Skincare! 👋");
 $("#yr").textContent=new Date().getFullYear();
