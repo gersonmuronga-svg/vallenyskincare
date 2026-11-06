@@ -165,7 +165,8 @@ header{position:sticky;top:0;z-index:50;background:rgba(247,241,234,.85);backdro
 .rev .who small{display:block;color:var(--muted);font-size:.78rem}
 
 /* about */
-.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
+.about-grid{max-width:760px;text-align:center}
+.about-grid .values{max-width:520px;margin-left:auto;margin-right:auto;text-align:left}
 .about-img{aspect-ratio:4/5;border-radius:28px;overflow:hidden;background:linear-gradient(150deg,var(--sand),var(--blush));position:relative}
 .about-img img{width:100%;height:100%;object-fit:cover}
 .about h2{font-size:clamp(2.3rem,4.6vw,3.4rem);margin:.8rem 0 1.4rem}
@@ -383,7 +384,6 @@ footer{border-top:1px solid var(--line);padding:2.6rem 0;font-size:.85rem;color:
   <!-- ABOUT -->
   <section id="about" class="about">
     <div class="wrap about-grid">
-      <div class="about-img reveal" id="aboutImg"></div>
       <div class="reveal">
         <span class="eyebrow">Our story</span>
         <h2>Beauty that starts with care.</h2>
@@ -482,8 +482,7 @@ footer{border-top:1px solid var(--line);padding:2.6rem 0;font-size:.85rem;color:
 const SHOP = {
   whatsapp: "264818598633",            // client's number, country code, no + or spaces
   phoneDisplay: "+264 81 859 8633",
-  email: "hello@vallenyskincare.com",
-  instagram: "vallenyskincare",
+  tiktok: "vallenyskincarecomestics",
   currency: "N$",
   heroImage: "images/hero.jpg",                        // e.g. "images/hero.jpg"
   aboutImage: ""                        // e.g. "images/about.jpg"
@@ -622,8 +621,7 @@ function photoPH(text, tone){
 /* hero + about */
 $("#heroArch").innerHTML = SHOP.heroImage ? `<img src="${SHOP.heroImage}" alt="Valleny Skincare">`
   : `<div class="ph-hero">${bottleSVG(["#ecd5cb","#c98b77"],"hero").replace('<svg','<svg style="width:70%;border-radius:200px 200px 0 0"')}</div>`;
-$("#aboutImg").innerHTML = SHOP.aboutImage ? `<img src="${SHOP.aboutImage}" alt="Valleny founder">`
-  : photoPH("Founder photo goes here","linear-gradient(150deg,#d9b8a8,#a96a57)");
+
 
 /* marquee */
 const words = ["Glow from within","Real results","Gentle formulas","Made for our climate","Order on WhatsApp","Loved across Namibia"];
@@ -723,8 +721,7 @@ $("#reviews").innerHTML=REVIEWS.map(r=>`<div class="rev reveal"><div class="star
   <div class="who"><div class="av">${r.name[0]}</div><div>${r.name}<small>${r.town}</small></div></div></div>`).join("");
 $("#contactList").innerHTML=`
   <a href="${waLink("Hi Valleny Skincare! I'd like some advice on my skin.")}" target="_blank" rel="noopener"><span style="font-size:1.4rem">💬</span><span><small>WhatsApp</small>${SHOP.phoneDisplay}</span></a>
-  <a href="https://instagram.com/${SHOP.instagram}" target="_blank" rel="noopener"><span style="font-size:1.4rem">📷</span><span><small>Instagram</small>@${SHOP.instagram}</span></a>
-  <a href="mailto:${SHOP.email}"><span style="font-size:1.4rem">✉️</span><span><small>Email</small>${SHOP.email}</span></a>`;
+  <a href="https://www.tiktok.com/@${SHOP.tiktok}" target="_blank" rel="noopener"><span style="display:grid;place-items:center;width:24px"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M16.6 5.8A4.3 4.3 0 0 1 15.5 3h-3.1v12.4a2.6 2.6 0 1 1-2.6-2.6c.3 0 .5 0 .8.1V9.7a5.7 5.7 0 1 0 4.9 5.7V9a7.4 7.4 0 0 0 4.3 1.4V7.3a4.3 4.3 0 0 1-3.2-1.5Z"/></svg></span><span><small>TikTok</small>@${SHOP.tiktok}</span></a>`;
 $("#waFloat").href=waLink("Hi Valleny Skincare! 👋");
 $("#yr").textContent=new Date().getFullYear();
 
